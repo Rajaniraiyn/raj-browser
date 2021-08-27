@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <title>New tab</title>
+    <link rel=icon type=image/png href="../assets/fonts/fontIcons/SVG/window.svg" type="image/svg+xml" />
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js></script>
+</head>
+
+<body>
+    <div class=search>
+        <svg class="search-svg" viewBox="0 0 320 70"
+            data-init="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M197,67 181.21,51.21"
+            data-mid="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M179.5,49.5 179.5,49.5"
+            data-active="M27,3 L293,3 a27,27 0 0,1 0,54 L27,57 a27,27 0 0,1 0,-54 M179.5,49.5 179.5,49.5">
+            <style>
+            </style>
+            <path fill="none" stroke="#fff" stroke-width="6" class="search-svg__path"
+                d="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M197,67 181.21,51.21" />
+        </svg>
+        <input type=text class=search-input onkeydown="if(event.key == 'Enter'){load(this.value.trim())}" />
+        <div class=search-close></div>
+    </div>
+    <style>
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            font-size: 62.5%;
+            height: 100%
+        }
+
+        body {
+            background: rebeccapurple;
+        }
+
+        svg {
+            overflow: visible
+        }
+
+        .search {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -16rem;
+            margin-top: -3.5rem;
+            width: 32rem;
+            height: 7rem
+        }
+
+        .search:not(.active) {
+            cursor: pointer
+        }
+
+        .search-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        .search-input {
+            position: relative;
+            width: 27rem;
+            height: 6rem;
+            padding: 1.2rem 0 1.2rem 2.5rem;
+            background: transparent;
+            outline: 0;
+            border: 0;
+            font-size: 3.6rem;
+            color: #fff;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity .2s
+        }
+
+        .search-input.visible {
+            z-index: auto;
+            opacity: 1
+        }
+
+        .search-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            z-index: -1
+        }
+
+        .search-close.visible {
+            z-index: auto
+        }
+
+        .search-close.visible:before {
+            transform: rotate(-45deg);
+            opacity: 1;
+            transition: transform .2s cubic-bezier(0.73, 0.14, 0.4, 1.58), opacity .1s
+        }
+
+        .search-close.visible:after {
+            transform: rotate(45deg);
+            opacity: 1;
+            transition: transform .2s .2s cubic-bezier(0.73, 0.14, 0.4, 1.58), opacity .1s .2s
+        }
+
+        .search-close:before,
+        .search-close:after {
+            content: "";
+            position: absolute;
+            top: 1.2rem;
+            left: 0;
+            width: 100%;
+            height: .6rem;
+            background: #fff;
+            border-radius: .5rem;
+            opacity: 0
+        }
+
+        .search-close:before {
+            transform: rotate(-45deg) translateX(2rem);
+            transition: transform .2s, opacity .1s .1s
+        }
+
+        .search-close:after {
+            transform: rotate(45deg) translateX(2rem);
+            transition: transform .2s .2s, opacity .1s .3s
+        }
+    </style>
+    <script>
+        var a = document.querySelector(".search"), b = document.querySelector(".search-input"), c = document.querySelector(".search-close"), d = document.querySelector(".search-svg"), e = Snap(document.querySelector(".search-svg__path")), f = !1; document.querySelector(".search:not(.active)").onclick = function () { f || (f = !0, a.classList.add("active"), e.animate({ path: d.getAttribute("data-mid") }, 200, mina.h, function () { e.animate({ path: d.getAttribute("data-active") }, 400, mina.g, function () { b.classList.add("visible"); b.focus(); c.classList.add("visible"); f = !1 }) })) }; document.querySelector(".search-close").onclick = function () { f || (f = !0, b.classList.remove("visible"), c.classList.remove("visible"), a.classList.remove("active"), setTimeout(function () { e.animate({ path: d.getAttribute("data-mid") }, 400, mina.g, function () { e.animate({ path: d.getAttribute("data-init") }, 200, mina.g, function () { f = !1 }) }) }, 400)) };
+    </script>
+    <script>
+        function load(b) { urlParser(b) ? window.location.replace(urlParser(b).href) : load("https://www.google.com/search?q=" + encodeURI(b)) } function url_is(b) { return /^(?:(?:ht{2}ps?|ftp|file):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|2{2}[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u0{2}1-\uf{4}0-9]-*)*[a-z\u0{2}1-\uf{4}0-9]+)(?:\.(?:[a-z\u0{2}1-\uf{4}0-9]-*)*[a-z\u0{2}1-\uf{4}0-9]+)*(?:\.(?:[a-z\u0{2}1-\uf{4}]{2,})))(?::\d{2,5})?(?:\/\S*)?$/.test(b) } function addHTTPS(b) { 0 == b.startsWith("https://") && (b.startsWith("http://") ? b.replace("http://", "https://") : b = "https://" + b); return b } function urlParser(b) { b = addHTTPS(b); return url_is(b) ? new URL(b) : !1 };
+    </script>
+</body>
+
+</html>

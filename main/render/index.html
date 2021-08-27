@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Browser</title>
+    <script>
+        //to scale font according to the device linearly
+        document.querySelector('html').style.setProperty('font-size', (screen.width / 100) + 'px')
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer type="module"></script>
+    <link rel="prerender" href="pages/newTab.html">
+
+</head>
+
+<body>
+    <div id="top-bar">
+        <input type="url" id="capture-link">
+        <div id="left">
+            <img src="assets/icons/sideBar.svg">
+            <img src="assets/icons/left.svg" onclick="document.querySelector('.active-page').goBack()">
+        </div>
+        <div id="tabs-container">
+        </div>
+        <div id="right">
+            <div id="title-bar-buttons">
+                <img src="assets/icons/minus.svg">
+                <img src="assets/icons/maximize.svg">
+                <img src="assets/icons/close.svg">
+            </div>
+            <img src="assets/icons/plus.svg" onclick="newTab()">
+        </div>
+    </div>
+    <div id="color-bar"></div>
+    <div id="content">
+    </div>
+</body>
+
+</html>
