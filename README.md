@@ -1,2 +1,2 @@
-# rajBrowser
-A UI and privacy focussed web browser from web technologies
+# Raj Browser
+A UI and privacy focussed browser for the web from the web.
