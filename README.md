@@ -68,8 +68,9 @@ and most of all other browsers
 - Context menu
 - On the fly image compression to reduce data usage
 - Installation setup
+- Porting from `<webview>` to `BrowserView` for additional perfomace and security
 
-**Limitations**
+**❌ Limitations**
 - no `prompt` support as electron by default (but working on it. devs! take a look at `customDialogues.js` for more info)
 
 ## Stack
