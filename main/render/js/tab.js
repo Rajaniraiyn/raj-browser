@@ -127,7 +127,9 @@ function newTab(url, favicon, title, hostname) {
 function closeTab(id) {
 
     var tb = document.getElementById(id),
-        wv = document.getElementById('page' + id.replace('tab', ''))
+        wv = document.getElementById(id.replace('tab', 'page')),
+        tabs = [...document.getElementsByClassName('tab')],
+        tbIndex = tabs.indexOf(tb);
 
     tb.classList.add('close-tab');
     wv.classList.add('close-page');
@@ -137,10 +139,30 @@ function closeTab(id) {
         tb.remove();
         wv.remove();
 
-        if (tb.previousSibling == null) document.querySelector("#title-bar-buttons > img:nth-child(3)").click();
+        if (tabs.length == 1) {
 
-        tb.previousSibling.classList.add('active-tab');
-        wv.previousSibling.classList.add('active-page');
+            return document.querySelector("#title-bar-buttons > img:nth-child(3)").click();
+
+        }
+
+        if (tbIndex == 0) {
+
+            var nextTab = tabs[1];
+
+            nextTab.classList.add('active-tab');
+            document.getElementById(nextTab.id.replace('tab', 'page')).classList.add('active-page');
+
+        }
+
+        else if (tbIndex > 0) {
+
+            var nextTab = tabs[tbIndex-1];
+
+            nextTab.classList.add('active-tab');
+            document.getElementById(nextTab.id.replace('tab', 'page')).classList.add('active-page');
+
+        }
+
 
         setDynamicColor();
 

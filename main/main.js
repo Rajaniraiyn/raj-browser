@@ -1,10 +1,13 @@
-const { app, BrowserWindow, nativeTheme, ipcMain } = require('electron');
+const { app, BrowserWindow, nativeTheme, ipcMain, session } = require('electron');
 const adBlocker = require('./adblock/adblock');
 const downloader = require("electron-download-manager");
+const settings = require("./settings/browser.config");
 
 
 // starts capturing downloads
-downloader.register();
+if (settings.enableDownloadManager) {
+  downloader.register();
+}
 
 
 let win;
@@ -14,14 +17,25 @@ function createWindow() {
     title: "Raj Browser",
     width: 800,
     height: 600,
+    center: true,
     icon: './appIcons/icon.ico',
     show: false,
     frame: false,
+    backgroundColor: settings.backgroundColor,
+    alwaysOnTop: settings.alwaysOnTop,
+    disableAutoHideCursor: settings.hideCursorWhileTyping,
+    opacity: settings.opacity,
     webPreferences: {
-      devTools: true,
-      preload: __dirname + '/render/js/preload.js',
+      nodeIntegration: settings.nodeIntegration,
+      preload: (__dirname + '/preload/preload.js'),
       webviewTag: true,
-      defaultFontFamily: "sansSerif"
+      defaultFontFamily: settings.defaultFont,
+      zoomFactor: settings.zoomFactor,
+      experimentalFeatures: settings.experimentalFeatures,
+      backgroundThrottling: settings.animationsAndTimersOnBackground,
+      autoplayPolicy: settings.autoplayPolicy,
+      disableHtmlFullscreenWindowResize: settings.disableFullScreen,
+      spellcheck: settings.spellcheck
     }
   });
 
@@ -32,10 +46,12 @@ function createWindow() {
   })
 
   // starts blocking Ads
-  adBlocker.then(
-    (blocker) => {
-      blocker.enableBlockingInSession(win.webContents.session)
-    })
+  if (settings.enableAdblock) {
+    adBlocker.then(
+      (blocker) => {
+        blocker.enableBlockingInSession(win.webContents.session)
+      })
+  }
 
 }
 
@@ -69,5 +85,16 @@ app.on('window-all-closed', _ => {
 });
 
 
+// sets theme
 // forces light theme as of now
-nativeTheme.themeSource = 'light'
+nativeTheme.themeSource = settings.theme
+
+
+app.on("quit", _ => {
+
+  // removes cookies on exit
+  if (settings.clearCookiesOnExit) {
+    session.defaultSession.clearStorageData([])
+  }
+
+})
