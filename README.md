@@ -1,4 +1,6 @@
 # Raj Browser
+[![License](https://badgen.net/github/license/Rajaniraiyn/raj-browser)](LICENSE) [![Release](https://badgen.net/github/release/Rajaniraiyn/raj-browser)](../../releases/latest) [![Gitter](https://badges.gitter.im/raj-browser/community.svg)](https://gitter.im/raj-browser/community) [![Gitter Members](https://badgen.net/gitter/members/raj-browser/community)](https://gitter.im/raj-browser/community) ![Checks](https://badgen.net/github/checks/Rajaniraiyn/raj-browser) [![Stars](https://badgen.net/github/stars/Rajaniraiyn/raj-browser)](../../stargazers) [![Forks](https://badgen.net/github/forks/Rajaniraiyn/raj-browser)](../../network/members) [![Opened Issues](https://badgen.net/github/open-issues/Rajaniraiyn/raj-browser)](../../issues?q=is%3Aopen)
+
 A UI and privacy focussed browser for the web from the web.
 
 ## Screenshots
@@ -56,13 +58,16 @@ and most of all other browsers
 - UI for download manager
 - Process manager
 - Settings configuration
--  Settings UI
+- Settings UI
 - More featured new tab
 - Sleeping tabs for reduce resources
 - Customisable UI
 - Custom themes
 - Improved UI and UX
 - More animations
+- Context menu
+- On the fly image compression to reduce data usage
+- Installation setup
 
 **Limitations**
 - no `prompt` support as electron by default (but working on it. devs! take a look at `customDialogues.js` for more info)
