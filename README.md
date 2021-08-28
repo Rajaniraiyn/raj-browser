@@ -33,7 +33,7 @@ To bring new evolution to browser design, I have created this with more space fo
 and most of all other browsers
 
 ## Features:
-**Available:**
+**🚀 Current:**
 - Chromium based so more compatibility over websites
 - Uses only necessary chromium binaries so more privacy
 - Modern, Unique and Simple Design 
@@ -44,7 +44,7 @@ and most of all other browsers
 - Custom scrollbar for all websites
 - Completely powered by opensource
 
-**Available partially:** (can be used manually)
+**🤞 Eventually:** (can be used manually)
 - Chrome extensions
 - Website screenshots
 - Dev tools
@@ -52,7 +52,7 @@ and most of all other browsers
 - Dropping links to open a page
 - Address bar (not completed)
 
-**To be Available** (planned to be implement)
+**🤔 Considering:** (planned to be implement)
 - Performance optimizations
 - UI for Adblocker
 - UI for download manager
