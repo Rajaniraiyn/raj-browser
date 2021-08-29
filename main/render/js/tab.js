@@ -53,7 +53,7 @@ const pageT = (id, url) => {
 
 };
 
-// defining id for exporting incase needed
+// defining id incase if exporting needed
 let id;
 
 
@@ -86,9 +86,6 @@ function newTab(url, favicon, title, hostname) {
     // toggles existing active tab and page for new
     if (document.getElementsByClassName('active-tab').length > 0) {
 
-        /*document.getElementsByClassName('active-tab')[0].classList.remove('active-tab');
-        document.getElementsByClassName('active-page')[0].classList.remove('active-page');*/
-
         setTimeout(() => {
 
             document.getElementsByClassName('active-tab')[0].classList.toggle('active-tab');
@@ -108,6 +105,9 @@ function newTab(url, favicon, title, hostname) {
     }
 
     else {
+
+        // sets url value instead of URL Object
+        url = typeof url == "object" ? url.href : url;
 
         tabC.appendChild(tabT(id, favicon, title, url, hostname));
         pageC.appendChild(pageT(id, url));
@@ -139,12 +139,16 @@ function closeTab(id) {
         tb.remove();
         wv.remove();
 
+        
+        // exits app when all tabs are closed
         if (tabs.length == 1) {
 
             return document.querySelector("#title-bar-buttons > img:nth-child(3)").click();
 
         }
 
+
+        // switch to next tab when there is no previous tab
         if (tbIndex == 0) {
 
             var nextTab = tabs[1];
@@ -154,6 +158,8 @@ function closeTab(id) {
 
         }
 
+
+        // switch to previous tab
         else if (tbIndex > 0) {
 
             var nextTab = tabs[tbIndex-1];
