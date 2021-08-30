@@ -15,7 +15,7 @@ const settings = {
     theme: "light",
     clearCookiesOnExit: true,
     hideCursorWhileTyping: false,
-    newTabPage = 'pages/newTab/default.html'
+    newTabPage: 'pages/newTab/default.html'
 }
 
 try {

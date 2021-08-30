@@ -73,8 +73,9 @@ ipcMain.on('maximize-window', _ => {
 
 
 app.whenReady().then(_ => {
+
   createWindow();
-  openProcess();
+  openProcessMgr();
 
   app.on('activate', _ => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
@@ -101,13 +102,17 @@ app.on("quit", _ => {
 })
 
 
-function openProcess() {
+function openProcessMgr() {
 
   var child = new BrowserWindow(
     {
       show: false,
       width: 500,
       height: 500,
+      center: true,
+      alwaysOnTop: true,
+      icon: './appIcons/icon.ico',
+      autoHideMenuBar: true,
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
@@ -130,7 +135,7 @@ function openProcess() {
 
     }, 1e3);
 
-    child.on("window-all-closed", _ => {
+    child.on("close", _ => {
 
       clearInterval(int);
 
