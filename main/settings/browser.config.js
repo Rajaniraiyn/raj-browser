@@ -14,7 +14,8 @@ const settings = {
     spellcheck: false,
     theme: "light",
     clearCookiesOnExit: true,
-    hideCursorWhileTyping: false
+    hideCursorWhileTyping: false,
+    newTabPage = 'pages/newTab/default.html'
 }
 
 try {

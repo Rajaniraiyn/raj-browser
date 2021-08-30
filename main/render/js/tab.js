@@ -74,13 +74,13 @@ function newTab(url, favicon, title, hostname) {
     id = Date.now();
 
     // conditioning parameters
-    url = url == undefined ? "pages/newTab/default.html" : (urlParser(url) ? urlParser(url) : url);
+    url = url == undefined ? window.newTabPage : (urlParser(url) ? urlParser(url) : url);
     hostname = hostname == undefined ? url.hostname || url : hostname;
     title = title == undefined ? hostname || url : title;
     favicon = favicon == undefined ? 'assets/loading.svg' : favicon;
 
     // check for new tab
-    hostname = url.includes('newTab/default.html') ? 'New tab' : hostname;
+    hostname = url.includes(window.newTabPage) ? 'New tab' : hostname;
 
 
     // toggles existing active tab and page for new
@@ -100,7 +100,7 @@ function newTab(url, favicon, title, hostname) {
     if (url == undefined) {
 
         tabC.insertAdjacentHTML('beforeend', tabT(id, favicon, 'New tab', '', 'New tab'));
-        pageC.insertAdjacentHTML('beforeend', pageT(id, "pages/newTab/default.html"));
+        pageC.insertAdjacentHTML('beforeend', pageT(id, window.newTabPage));
 
     }
 

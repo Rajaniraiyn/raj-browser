@@ -132,7 +132,7 @@ function addEvents(id) {
         }
 
         // condition for New Tab
-        else if (wv.src.includes('newTab/default.html')) {
+        else if (wv.src.includes(window.newTabPage)) {
 
             img.src = 'assets/icons/window.svg'
 
