@@ -1,6 +1,6 @@
 import { newTab } from "./tab.js";
 import { urlParser } from "./url.js";
-import startLinkCapturing from './linkdrop.js'
+import startLinkCapturing from './linkDrop.js';
 
 
 /**
@@ -53,7 +53,7 @@ export { load }
  *
  *  remove all search to google search in render process
  *
- *  instead add needed scripts and change location within the newTab.html
+ *  instead add needed scripts and change location within the default.html
  *
  *  Investigate on custom scrollbar
  *

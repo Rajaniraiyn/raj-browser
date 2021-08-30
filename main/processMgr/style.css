@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  text-rendering: optimizeLegibility;
+  user-select: none;
+  background-color: transparent;
+}
+
+td {
+  padding: .5rem;
+}
+
+meter::-webkit-meter-even-less-good-value {
+  background: green;
+}
+
+meter::-webkit-meter-optimum-value {
+  background: red;
+}
+
+.process:first {
+  font-weight: bolder;
+}
+
+::-webkit-scrollbar{width:.5rem}
+::-webkit-scrollbar-track{border:none;background:none}
+::-webkit-scrollbar-thumb{border-radius:10px;background:rgba(0,0,0,.2);min-height:50px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.4)}
+::-webkit-scrollbar-thumb:active{background:rgba(0,0,0,.7)}

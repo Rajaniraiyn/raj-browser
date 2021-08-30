@@ -65,7 +65,7 @@ async function setDynamicColor(id) {
                 // gets dominant color of the image in speed mode,
                 // by default the algorithm is simple and mode is precision
                 // for the dynamic color we need dominant color as fast as we can
-                // experiments: https://fast-average-color.github.io/examples/canvas.html 
+                // Performance Experiments: https://fast-average-color.github.io/examples/canvas.html 
                 getAverageColor(img, {
                     algorithm: 'dominant',
                     mode: 'speed'
@@ -73,8 +73,8 @@ async function setDynamicColor(id) {
                     .then(
                         color => {
 
-                            // the promise returns an array
-                            return document.getElementById('color-bar').style.backgroundColor = color.rgb;
+                            // the promise returns an Object
+                            return document.body.style.backgroundColor = color.rgb;
 
                         }
                     )

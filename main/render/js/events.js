@@ -27,6 +27,20 @@ let scrollbarStyle =
 ::-webkit-scrollbar-thumb:active{background:rgba(0,0,0,.7)}`
 
 
+/**
+ * 
+ * Useful for creating custom events
+ * 
+ * @param {HTMLElement} el 
+ * @param {String} eventType 
+ * @param {String} detail 
+ * @returns 
+ */
+const triggerEvent = (el, eventType, detail) => {
+return el.dispatchEvent(new CustomEvent(eventType, { detail }));
+}
+
+
 /** 
  * sets all necessary events for webview in electron 
  * 
@@ -118,7 +132,7 @@ function addEvents(id) {
         }
 
         // condition for New Tab
-        else if (wv.src.includes('newTab.html')) {
+        else if (wv.src.includes('newTab/default.html')) {
 
             img.src = 'assets/icons/window.svg'
 
@@ -215,7 +229,18 @@ function addEvents(id) {
 
     }
 
+
+    // mouse hover effects in tabs
+    tb.onmousemove = e => {
+
+        var rect = e.target.getBoundingClientRect();
+        e.target.style.setProperty('--x', e.clientX - rect.left + 'px');
+        e.target.style.setProperty('--y', e.clientY - rect.top + 'px');
+
+    }
+
+
 }
 
 
-export { addEvents }
+export { addEvents, triggerEvent }

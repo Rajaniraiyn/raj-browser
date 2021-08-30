@@ -1,6 +1,6 @@
 const settings = {
-    enableAdblock : true,
-    enableDownloadManager : true,
+    enableAdblock: true,
+    enableDownloadManager: true,
     defaultFont: "sansSerif",
     alwaysOnTop: false,
     backgroundColor: "#FFF",
@@ -17,4 +17,9 @@ const settings = {
     hideCursorWhileTyping: false
 }
 
-module.exports = settings;
+try {
+    window.settings = document.settings = settings;
+}
+catch (error) {
+    module.exports = settings;
+}

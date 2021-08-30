@@ -20,8 +20,8 @@ const pageC = document.getElementById('content');
  */
 const tabT = (id, favicon, title, url, hostname) => {
 
-    var template =
-        `<div class="active-tab tab" id=${'tab' + id}>
+    /*var template =*/
+    return `<div class="active-tab tab" id=${'tab' + id}>
     <img src="${favicon}">
     <div class="address-bar">
         <span class="title">${title}</span>
@@ -32,8 +32,8 @@ const tabT = (id, favicon, title, url, hostname) => {
     <img src="assets/icons/more-circle-filled.svg">
 </div>`;
 
-    //returns a parsed node element
-    return (new DOMParser().parseFromString(template, 'text/html').body.childNodes)[0];
+    /*//returns a parsed node element
+    return (new DOMParser().parseFromString(template, 'text/html').body.childNodes)[0];*/
 
 };
 
@@ -46,10 +46,10 @@ const tabT = (id, favicon, title, url, hostname) => {
  */
 const pageT = (id, url) => {
 
-    var template = `<webview src=${url} frameborder="0" id=${'page' + id} class="active-page"></webview>`;
+    /*var template =*/return `<webview src=${url} frameborder="0" id=${'page' + id} class="active-page"></webview>`;
 
-    // returns parsed node element
-    return (new DOMParser().parseFromString(template, 'text/html').body.childNodes)[0];
+    /*// returns parsed node element
+    return (new DOMParser().parseFromString(template, 'text/html').body.childNodes)[0];*/
 
 };
 
@@ -74,13 +74,13 @@ function newTab(url, favicon, title, hostname) {
     id = Date.now();
 
     // conditioning parameters
-    url = url == undefined ? "pages/newTab.html" : (urlParser(url) ? urlParser(url) : url);
+    url = url == undefined ? "pages/newTab/default.html" : (urlParser(url) ? urlParser(url) : url);
     hostname = hostname == undefined ? url.hostname || url : hostname;
     title = title == undefined ? hostname || url : title;
     favicon = favicon == undefined ? 'assets/loading.svg' : favicon;
 
     // check for new tab
-    hostname = hostname.includes('newTab.html') ? 'New tab' : hostname;
+    hostname = url.includes('newTab/default.html') ? 'New tab' : hostname;
 
 
     // toggles existing active tab and page for new
@@ -99,8 +99,8 @@ function newTab(url, favicon, title, hostname) {
     // special condition for new tab only
     if (url == undefined) {
 
-        tabC.appendChild(tabT(id, favicon, 'New tab', '', 'New tab'));
-        pageC.appendChild(pageT(id, "pages/newTab.html"));
+        tabC.insertAdjacentHTML('beforeend', tabT(id, favicon, 'New tab', '', 'New tab'));
+        pageC.insertAdjacentHTML('beforeend', pageT(id, "pages/newTab/default.html"));
 
     }
 
@@ -109,8 +109,8 @@ function newTab(url, favicon, title, hostname) {
         // sets url value instead of URL Object
         url = typeof url == "object" ? url.href : url;
 
-        tabC.appendChild(tabT(id, favicon, title, url, hostname));
-        pageC.appendChild(pageT(id, url));
+        tabC.insertAdjacentHTML('beforeend', tabT(id, favicon, title, url, hostname));
+        pageC.insertAdjacentHTML('beforeend', pageT(id, url));
 
     };
 
@@ -120,7 +120,7 @@ function newTab(url, favicon, title, hostname) {
 };
 
 /**
- * for a given id this removes the tab and page from the DOM after 0.4s of animation
+ * for a given id this removes the tab and page from the DOM after 0.3s of animation
  * 
  * @param {String} id id of tab
  */
@@ -139,7 +139,7 @@ function closeTab(id) {
         tb.remove();
         wv.remove();
 
-        
+
         // exits app when all tabs are closed
         if (tabs.length == 1) {
 
@@ -162,7 +162,7 @@ function closeTab(id) {
         // switch to previous tab
         else if (tbIndex > 0) {
 
-            var nextTab = tabs[tbIndex-1];
+            var nextTab = tabs[tbIndex - 1];
 
             nextTab.classList.add('active-tab');
             document.getElementById(nextTab.id.replace('tab', 'page')).classList.add('active-page');
@@ -172,7 +172,7 @@ function closeTab(id) {
 
         setDynamicColor();
 
-    }, .4e3);
+    }, .3e3);
 
 }
 

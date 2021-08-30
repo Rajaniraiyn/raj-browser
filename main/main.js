@@ -74,6 +74,7 @@ ipcMain.on('maximize-window', _ => {
 
 app.whenReady().then(_ => {
   createWindow();
+  openProcess();
 
   app.on('activate', _ => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
@@ -98,3 +99,43 @@ app.on("quit", _ => {
   }
 
 })
+
+
+function openProcess() {
+
+  var child = new BrowserWindow(
+    {
+      show: false,
+      width: 500,
+      height: 500,
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+        enableRemoteModule: true,
+      }
+    }
+  )
+
+  child.loadFile("./main/processMgr/index.html");
+
+  child.once('ready-to-show', _ => {
+
+    child.show();
+
+    child.webContents.send('available-memory', process.getSystemMemoryInfo().total)
+
+    var int = setInterval(_ => {
+
+      child.webContents.send('process-info', app.getAppMetrics());
+
+    }, 1e3);
+
+    child.on("window-all-closed", _ => {
+
+      clearInterval(int);
+
+    })
+
+  })
+
+}
