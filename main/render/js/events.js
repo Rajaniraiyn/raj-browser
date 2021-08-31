@@ -1,3 +1,6 @@
+'use strict';
+
+
 import { setDynamicColor } from "./dynamicColor.js";
 import { newTab, closeTab } from "./tab.js";
 import { urlParser } from "./url.js";

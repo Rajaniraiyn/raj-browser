@@ -1,3 +1,6 @@
+'use strict';
+
+
 import { newTab } from './tab.js'
 
 /**

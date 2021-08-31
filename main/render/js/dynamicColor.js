@@ -1,3 +1,6 @@
+'use strict';
+
+
 import FastAverageColor from './fastAverageColor.js'
 
 /**

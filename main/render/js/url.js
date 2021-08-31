@@ -1,3 +1,6 @@
+'use strict';
+
+
 /**
  * checks wether the parameter string is in url structure using RegExp
  * 

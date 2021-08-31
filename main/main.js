@@ -1,7 +1,11 @@
+'use strict';
+
+
 const { app, BrowserWindow, nativeTheme, ipcMain, session } = require('electron');
 const adBlocker = require('./adblock/adblock');
 const downloader = require("electron-download-manager");
 const settings = require("./settings/browser.config");
+const contextMenu = require('electron-context-menu');
 
 
 // starts capturing downloads
@@ -28,6 +32,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: settings.nodeIntegration,
       preload: (__dirname + '/preload/preload.js'),
+      devTools: true,
       webviewTag: true,
       defaultFontFamily: settings.defaultFont,
       zoomFactor: settings.zoomFactor,
@@ -96,12 +101,18 @@ app.on("quit", _ => {
 
   // removes cookies on exit
   if (settings.clearCookiesOnExit) {
-    session.defaultSession.clearStorageData([])
+    session.defaultSession.clearStorageData();
+  }
+
+  // clears cache on exit
+  if (settings.clearCacheOnExit) {
+    session.defaultSession.clearCache();
   }
 
 })
 
 
+// opens new process manager window
 function openProcessMgr() {
 
   var child = new BrowserWindow(
@@ -127,14 +138,17 @@ function openProcessMgr() {
 
     child.show();
 
+    // sends total available physical memory size in KB
     child.webContents.send('available-memory', process.getSystemMemoryInfo().total)
 
+    // sends process info for every second
     var int = setInterval(_ => {
 
       child.webContents.send('process-info', app.getAppMetrics());
 
     }, 1e3);
 
+    // removes the interval on close to prevent errors
     child.on("close", _ => {
 
       clearInterval(int);
@@ -144,3 +158,53 @@ function openProcessMgr() {
   })
 
 }
+
+
+// for custom context menu
+contextMenu({
+
+
+});
+app.on("web-contents-created", (e, contents) => {
+  contextMenu({
+    window: contents,
+    labels: {
+      cut: 'Cut',
+      copy: 'Copy',
+      paste: 'Paste',
+      save: 'Save Image',
+      saveImageAs: 'Save Image As…',
+      copyLink: 'Copy Link',
+      saveLinkAs: 'Save Link As…',
+      inspect: 'Inspect Element',
+      copyImage: 'Copy Image to clipboard'
+    },
+    prepend: () => [
+      {
+        label: 'Reload',
+        click: _ => {
+          contents.reload();
+        }
+      },
+      {
+        type: 'separator'
+      }
+    ],
+    append: () => { },
+    showCopyImageAddress: true,
+    showCopyImage: true,
+    showSaveImageAs: true,
+    showInspectElement: true,
+    showSaveLinkAs: true,
+    showSearchWithGoogle: true,
+    cut: true,
+    copy: true,
+    paste: true,
+    save: true,
+    saveImageAs: true,
+    copyLink: true,
+    saveLinkAs: true,
+    inspect: true,
+    spellCheck: true
+  });
+})

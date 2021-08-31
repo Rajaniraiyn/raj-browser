@@ -1,3 +1,6 @@
+'use strict';
+
+
 import { setDynamicColor } from "./dynamicColor.js";
 import { addEvents } from "./events.js";
 import { urlParser } from "./url.js";

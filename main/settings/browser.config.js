@@ -1,3 +1,6 @@
+'use strict';
+
+
 const settings = {
     enableAdblock: true,
     enableDownloadManager: true,
@@ -15,7 +18,8 @@ const settings = {
     theme: "light",
     clearCookiesOnExit: true,
     hideCursorWhileTyping: false,
-    newTabPage: 'pages/newTab/default.html'
+    newTabPage: 'pages/newTab/default.html',
+    clearCacheOnExit: true
 }
 
 try {
