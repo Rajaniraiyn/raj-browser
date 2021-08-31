@@ -1,55 +1,44 @@
-'use strict';
-
+"use strict";
 
 import { newTab } from "./tab.js";
 import { urlParser } from "./url.js";
-import startLinkCapturing from './linkDrop.js';
-
+import startLinkCapturing from "./linkDrop.js";
 
 /**
  * loads the given url into new tab and page
- * 
- * @param {String} url 
+ *
+ * @param {String} url
  * @returns {String}
  */
 function load(url) {
+  // simple preprocessing
+  url = url.trim();
 
-    // simple preprocessing
-    url = url.trim();
+  // condition to see wether the url is URL or a string
+  if (urlParser(url)) {
+    // changes the source of active page
+    document.querySelector(".active-page").src = urlParser(url).href;
 
-    // condition to see wether the url is URL or a string
-    if (urlParser(url)) {
+    // changes the url domain (not full url) of the tab
+    document.querySelector(".active-tab>div>.url").textContent =
+      urlParser(url).hostname;
 
-        // changes the source of active page
-        document.querySelector('.active-page').src = urlParser(url).href;
-
-        // changes the url domain (not full url) of the tab
-        document.querySelector('.active-tab>div>.url').textContent = urlParser(url).hostname;
-
-        return urlParser(url).href;
-
-    }
-
-    else {
-
-        // recursively calls when the parameter is not a URL
-        load('https://www.google.com/search?q=' + encodeURI(url))
-    }
-
+    return urlParser(url).href;
+  } else {
+    // recursively calls when the parameter is not a URL
+    load("https://www.google.com/search?q=" + encodeURI(url));
+  }
 }
-
 
 // used to open new tab after opening the browser
-window.onload = _ => {
+window.onload = (_) => {
+  newTab();
 
-    newTab();
-
-    startLinkCapturing;
-
-}
+  startLinkCapturing;
+};
 window.newTab = newTab;
 
-export { load }
+export { load };
 
 /**
  * ############################################################################

@@ -1,20 +1,19 @@
-const { ElectronBlocker, fullLists } = require('@cliqz/adblocker-electron');
-const { readFileSync, writeFileSync } = require('fs');
-const fetch = require('node-fetch')
-
+const { ElectronBlocker, fullLists } = require("@cliqz/adblocker-electron");
+const { readFileSync, writeFileSync } = require("fs");
+const fetch = require("node-fetch");
 
 const adBlocker = ElectronBlocker.fromLists(
-    fetch,
-    fullLists,
-    {
-        enableCompression: true,
-    },
-    {
-        path: './main/adblock/adblockCache.bin',
-        read: async (...args) => readFileSync(...args),
-        write: async (...args) => writeFileSync(...args),
-    });
-
+  fetch,
+  fullLists,
+  {
+    enableCompression: true,
+  },
+  {
+    path: "./main/adblock/adblockCache.bin",
+    read: async (...args) => readFileSync(...args),
+    write: async (...args) => writeFileSync(...args),
+  }
+);
 
 // all listeners for logging
 /*

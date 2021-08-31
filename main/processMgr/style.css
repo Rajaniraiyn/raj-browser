@@ -4,61 +4,62 @@
   font-family: sans-serif;
   text-rendering: optimizeLegibility;
   user-select: none;
-  background-color: transparent
+  background-color: transparent;
 }
 
-table,td {
-  padding: .5rem
+table,
+td {
+  padding: 0.5rem;
 }
 
 table {
-  border-spacing: 0
+  border-spacing: 0;
 }
 
 td {
   border-left: 1px solid #000;
-  border-bottom: 1px solid #000
+  border-bottom: 1px solid #000;
 }
 
 td:last-of-type {
-  border-right: 1px solid #000
+  border-right: 1px solid #000;
 }
 
 tr:first-of-type td {
-  border-top: 1px solid #000
+  border-top: 1px solid #000;
 }
 
 meter::-webkit-meter-even-less-good-value {
-  background: green
+  background: green;
 }
 
 meter::-webkit-meter-optimum-value {
-  background: red
+  background: red;
 }
 
 .head {
-  font-weight: bolder
+  font-weight: bolder;
 }
 
 ::-webkit-scrollbar {
-  width: .5rem
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
   border: 0;
-  background: 0 0
+  background: 0 0;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: rgba(0,0,0,.2);
-  min-height: 50px
+  background: rgba(0, 0, 0, 0.2);
+  min-height: 50px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0,0,0,.4)
+  background: rgba(0, 0, 0, 0.4);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgba(0,0,0,.7)
+  background: rgba(0, 0, 0, 0.7);
 }
