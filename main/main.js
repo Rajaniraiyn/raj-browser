@@ -1,20 +1,18 @@
 'use strict';
 
 
-const { app, BrowserWindow, nativeTheme, ipcMain, session } = require('electron');
-const adBlocker = require('./adblock/adblock');
-const downloader = require("electron-download-manager");
-const settings = require("./settings/browser.config");
-const contextMenu = require('electron-context-menu');
+var { app, BrowserWindow, nativeTheme, ipcMain, session } = require('electron');
+var settings = require("./settings/browser.config");
 
 
 // starts capturing downloads
 if (settings.enableDownloadManager) {
+  var downloader = require("electron-download-manager");
   downloader.register();
 }
 
 
-let win;
+var win;
 
 function createWindow() {
   win = new BrowserWindow({
@@ -52,6 +50,7 @@ function createWindow() {
 
   // starts blocking Ads
   if (settings.enableAdblock) {
+    var adBlocker = require('./adblock/adblock');
     adBlocker.then(
       (blocker) => {
         blocker.enableBlockingInSession(win.webContents.session)
@@ -161,11 +160,8 @@ function openProcessMgr() {
 
 
 // for custom context menu
-contextMenu({
-
-
-});
 app.on("web-contents-created", (e, contents) => {
+  var contextMenu = require('electron-context-menu');
   contextMenu({
     window: contents,
     labels: {
