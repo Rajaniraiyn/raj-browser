@@ -9,6 +9,11 @@ if (settings.enableDownloadManager) {
   downloader.register();
 }
 
+// enables V8 Code Caching
+if (settings.enableCaching) {
+  require("v8-compile-cache");
+}
+
 var win;
 
 function createWindow() {
@@ -36,6 +41,7 @@ function createWindow() {
       autoplayPolicy: settings.autoplayPolicy,
       disableHtmlFullscreenWindowResize: settings.disableFullScreen,
       spellcheck: settings.spellcheck,
+      v8CacheOptions: settings.enableCaching ? "bypassHeatCheckAndEagerCompile" : "none",
     },
   });
 
@@ -165,7 +171,7 @@ app.on("web-contents-created", (e, contents) => {
         type: "separator",
       },
     ],
-    append: () => {},
+    append: () => { },
     showCopyImageAddress: true,
     showCopyImage: true,
     showSaveImageAs: true,

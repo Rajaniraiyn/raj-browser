@@ -19,6 +19,7 @@ const settings = {
   hideCursorWhileTyping: false,
   newTabPage: "pages/newTab/default.html",
   clearCacheOnExit: true,
+  enableCaching: true,
 };
 
 try {
