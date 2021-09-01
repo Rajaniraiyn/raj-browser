@@ -11,8 +11,7 @@
     "start": "electron .",
     "_start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
-    "build": "electron-builder build"
+    "make": "electron-forge make"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.59",
