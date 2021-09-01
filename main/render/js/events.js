@@ -61,9 +61,10 @@ function addEvents(id) {
     // check for false positive
     if (wv.isLoadingMainFrame()) img.src = "assets/loading.svg";
 
-    if (e.url !== undefined)
+    if (e.url !== undefined) {
       url.textContent = e.url === "New tab" ? e.url : urlParser(e.url).hostname;
-    document.querySelector(".active-tab> div > input[type=url]").value = urlParser(e.url).href;
+      document.querySelector(".active-tab> div > input[type=url]").value = urlParser(e.url).href;
+    }
   });
 
   // triggered when the page stops loading
@@ -76,6 +77,11 @@ function addEvents(id) {
 
     // sets dynamic color behind the top bar of the browser
     setDynamicColor("page" + id);
+
+    // removes the splash screen after the new tab finished loading
+    if (document.getElementById('splash-screen') !== null) {
+      document.getElementById('splash-screen').remove()
+    }
   });
 
   // triggered when the page tries to open a link in new tab

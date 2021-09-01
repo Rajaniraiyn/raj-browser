@@ -10,7 +10,7 @@
         //to scale font according to the device linearly
         document.querySelector('html').style.setProperty('font-size', (screen.width / 100) + 'px')
     </script>
-    <link rel=icon type=image/png href="../../appIcons/icon.svg"" type="image/svg+xml" />
+    <link rel=icon type=image/png href="../../appIcons/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/style.css">
     <script src='../settings/browser.config.js'></script>
     <script src="js/script.js" defer type="module"></script>
@@ -19,6 +19,25 @@
 </head>
 
 <body>
+    <div id="splash-screen">
+        <style>
+            #splash-screen {
+                position: absolute;
+                inset: 0;
+                background: #fff;
+                display: grid;
+                place-items: center;
+                z-index: 1000
+            }
+
+            #splash-icon {
+                width: 15vh;
+                height: 15vh;
+                filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .5))
+            }
+        </style>
+        <img src="../../appIcons/icon.svg" id="splash-icon">
+    </div>
     <div id="top-bar">
         <input type="url" id="capture-link">
         <div id="left">
