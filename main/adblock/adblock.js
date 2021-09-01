@@ -1,6 +1,6 @@
 const { ElectronBlocker, fullLists } = require("@cliqz/adblocker-electron");
 const { readFileSync, writeFileSync } = require("fs");
-const fetch = require("node-fetch");
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const adBlocker = ElectronBlocker.fromLists(
   fetch,

@@ -84,6 +84,11 @@ function addEvents(id) {
     }
   });
 
+  // triggered when error occurs
+  wv.addEventListener("did-fail-load", e => {
+    console.log(e);
+  })
+
   // triggered when the page tries to open a link in new tab
   wv.addEventListener("new-window", (e) => {
     newTab(e.url);
