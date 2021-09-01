@@ -3,6 +3,7 @@
 import { setDynamicColor } from "./dynamicColor.js";
 import { addEvents } from "./events.js";
 import { urlParser } from "./url.js";
+import { addressBar } from "./addressBar.js"
 
 // container Elements
 const tabC = document.getElementById("tabs-container");
@@ -26,9 +27,8 @@ const tabT = (id, favicon, title, url, hostname) => {
         <span class="title">${title}</span>
         <span class="url">${hostname}</span>
         <input type="url" value="${url}">
-        <img src=${
-          url.includes("https://") ? "assets/icons/secure_filled.svg" : ""
-        }>
+        <img src=${url.includes("https://") ? "assets/icons/secure_filled.svg" : ""
+    }>
     </div>
     <img src="assets/icons/more-circle-filled.svg">
 </div>`;
@@ -45,9 +45,8 @@ const tabT = (id, favicon, title, url, hostname) => {
  * @returns {String}
  */
 const pageT = (id, url) => {
-  /*var template =*/ return `<webview src=${url} frameborder="0" id=${
-    "page" + id
-  } class="active-page"></webview>`;
+  /*var template =*/ return `<webview src=${url} frameborder="0" id=${"page" + id
+    } class="active-page"></webview>`;
 
   /*// returns parsed node element
     return (new DOMParser().parseFromString(template, 'text/html').body.childNodes)[0];*/
@@ -76,8 +75,8 @@ function newTab(url, favicon, title, hostname) {
     url == undefined
       ? settings.newTabPage
       : urlParser(url)
-      ? urlParser(url)
-      : url;
+        ? urlParser(url)
+        : url;
   hostname = hostname == undefined ? url.hostname || url : hostname;
   title = title == undefined ? hostname || url : title;
   favicon = favicon == undefined ? "assets/loading.svg" : favicon;
@@ -116,6 +115,7 @@ function newTab(url, favicon, title, hostname) {
   }
 
   // attach all events for a page
+  addressBar();
   addEvents(id);
 }
 

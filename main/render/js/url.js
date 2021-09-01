@@ -25,9 +25,9 @@ function url_is(str) {
 function addHTTPS(url) {
   return (
     0 == url.startsWith("https://") &&
-      (url.startsWith("http://")
-        ? url.replace("http://", "https://")
-        : (url = "https://" + url)),
+    (url.startsWith("http://")
+      ? url.replace("http://", "https://")
+      : (url = "https://" + url)),
     url
   );
 }

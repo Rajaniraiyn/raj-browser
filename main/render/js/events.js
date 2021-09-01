@@ -61,8 +61,9 @@ function addEvents(id) {
     // check for false positive
     if (wv.isLoadingMainFrame()) img.src = "assets/loading.svg";
 
-    if (e.url != undefined)
-      url.textContent = e.url == "New tab" ? e.url : urlParser(e.url).hostname;
+    if (e.url !== undefined)
+      url.textContent = e.url === "New tab" ? e.url : urlParser(e.url).hostname;
+    document.querySelector(".active-tab> div > input[type=url]").value = urlParser(e.url).href;
   });
 
   // triggered when the page stops loading
@@ -86,8 +87,9 @@ function addEvents(id) {
   wv.addEventListener("will-navigate", (e) => {
     console.log("will navigate event", e);
 
-    if (e.url != undefined)
-      url.textContent = e.url == "New tab" ? e.url : urlParser(e.url).hostname;
+    if (e.url !== undefined)
+      url.textContent = e.url === "New tab" ? e.url : urlParser(e.url).hostname;
+    document.querySelector(".active-tab> div > input[type=url]").value = urlParser(e.url).href;
   });
 
   // triggered when media in page started playing
@@ -146,10 +148,12 @@ function addEvents(id) {
   // this is for when the user directly inputs url into the tab
   wv.onchange = (_) => {
     url.textContent = urlParser(wv.src).hostname;
+    document.querySelector(".active-tab> div > input[type=url]").value = urlParser(e.url).href;
   };
 
   // double click to close the tab
-  tb.ondblclick = (_) => {
+  tb.ondblclick = (e) => {
+    if (e.target.tagName === "INPUT") return;
     closeTab("tab" + id);
 
     // sets dynamic color behind the top bar of the browser
@@ -176,9 +180,9 @@ function addEvents(id) {
 
   // mouse hover effects in tabs
   tb.onmousemove = (e) => {
-    var rect = e.target.getBoundingClientRect();
-    e.target.style.setProperty("--x", e.clientX - rect.left + "px");
-    e.target.style.setProperty("--y", e.clientY - rect.top + "px");
+    var rect = tb.getBoundingClientRect();
+    tb.style.setProperty("--x", e.clientX - rect.left + "px");
+    tb.style.setProperty("--y", e.clientY - rect.top + "px");
   };
 }
 

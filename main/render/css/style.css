@@ -123,10 +123,15 @@
 #left img,
 #right img,
 .tab {
-  background: rgba(196, 196, 196, 0.5);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   -webkit-app-region: no-drag;
+  background: rgba(196, 196, 196, 0.5);
+}
+#left img,
+#right img {
+  animation: top-bar-icon-entry 0.4s ease 0.3s 1 normal forwards;
+  padding: 3px;
 }
 .tab {
   animation: tab-entry 0.4s ease-out 0s 1 normal forwards;
@@ -134,7 +139,6 @@
   width: fit-content;
   min-width: 25px;
   height: 30px;
-  background: rgba(196, 196, 196, 0.5);
   padding-inline: 5px;
   white-space: nowrap;
   gap: 1rem;
@@ -149,11 +153,6 @@
 .active-tab.tab {
   background: rgba(248, 248, 248, 0.5);
   filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.25));
-}
-#left img,
-#right img {
-  animation: top-bar-icon-entry 0.4s ease 0.3s 1 normal forwards;
-  padding: 3px;
 }
 .active-tab.tab .address-bar .title,
 .active-tab.tab .address-bar input,
@@ -191,19 +190,14 @@
   border: 0;
   font-size: 1rem;
 }
-/*#color-bar {
-	height: 50px;
-	background-color: #fff;
-	width: -webkit-fill-available;
-}*/
 .close-tab {
   animation: tab-close 0.3s ease 0s 1 normal forwards;
 }
 .close-page {
   animation: close-active-page 0.3s ease 0s 1 normal forwards;
 }
-.tab:active,
-#top-bar img:active {
+#top-bar img:active,
+.tab:active {
   transition: scale 0.4s ease;
   transform: scale(0.9);
   opacity: 0.9;
@@ -215,11 +209,11 @@
   transform: translateY(-5px);
   justify-items: center;
   align-items: center;
-  background: transparent;
+  background: 0 0;
   overflow: visible;
 }
 #title-bar-buttons img {
-  background: transparent;
+  background: 0 0;
 }
 #right {
   display: flex;
@@ -228,8 +222,8 @@
   flex-wrap: nowrap;
 }
 #capture-link {
-  outline: none;
-  border: none;
+  outline: 0;
+  border: 0;
   background-color: transparent;
   position: absolute;
   top: 0;
@@ -249,10 +243,17 @@
   top: var(--y);
   width: var(--size);
   height: var(--size);
+  pointer-events: none;
   background: radial-gradient(circle closest-side, #ffffff75, transparent);
   transform: translate(-50%, -50%);
   transition: width 0.2s ease, height 0.2s ease;
 }
 .tab:hover:before {
   --size: 100px;
+}
+.active-tab:hover span {
+  display: none !important;
+}
+.active-tab:hover input {
+  display: block !important;
 }
