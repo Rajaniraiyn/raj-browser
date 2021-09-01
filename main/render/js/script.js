@@ -30,15 +30,23 @@ function load(url) {
   }
 }
 
+// registers the worker
+const worker = new Worker("./js/webworkers/handler.js", { type: "module" });
+
+worker.onmessage = (e) => {
+  if (e.data.debug && e.data.debug.msg) console.log(e.data.msg)
+};
+
 // used to open new tab after opening the browser
 window.onload = (_) => {
   newTab();
 
   startLinkCapturing;
 };
+
 window.newTab = newTab;
 
-export { load };
+export { load, worker };
 
 /**
  * ############################################################################
