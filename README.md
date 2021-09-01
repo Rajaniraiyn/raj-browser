@@ -1,7 +1,12 @@
-# Raj Browser
-[![License](https://badgen.net/github/license/Rajaniraiyn/raj-browser)](LICENSE) [![Release](https://badgen.net/github/release/Rajaniraiyn/raj-browser)](../../releases/latest) [![Gitter](https://badges.gitter.im/raj-browser/community.svg)](https://gitter.im/raj-browser/community) [![Gitter Members](https://badgen.net/gitter/members/raj-browser/community)](https://gitter.im/raj-browser/community) ![Checks](https://badgen.net/github/checks/Rajaniraiyn/raj-browser) [![Stars](https://badgen.net/github/stars/Rajaniraiyn/raj-browser)](../../stargazers) [![Forks](https://badgen.net/github/forks/Rajaniraiyn/raj-browser)](../../network/members) [![Opened Issues](https://badgen.net/github/open-issues/Rajaniraiyn/raj-browser)](../../issues?q=is%3Aopen)
+<div align=center>
+ 
+ ![icon-small](https://user-images.githubusercontent.com/72294760/131682171-2300d5e0-f42c-490e-86bd-6eba492abad9.png)
 
-A UI and privacy focussed browser for the web from the web.
+ # Raj Browser
+ [![License](https://badgen.net/github/license/Rajaniraiyn/raj-browser)](LICENSE) [![Release](https://badgen.net/github/release/Rajaniraiyn/raj-browser)](../../releases/latest) [![Gitter](https://badges.gitter.im/raj-browser/community.svg)](https://gitter.im/raj-browser/community) [![Gitter Members](https://badgen.net/gitter/members/raj-browser/community)](https://gitter.im/raj-browser/community) ![Checks](https://badgen.net/github/checks/Rajaniraiyn/raj-browser) [![Stars](https://badgen.net/github/stars/Rajaniraiyn/raj-browser)](../../stargazers) [![Forks](https://badgen.net/github/forks/Rajaniraiyn/raj-browser)](../../network/members) [![Opened Issues](https://badgen.net/github/open-issues/Rajaniraiyn/raj-browser)](../../issues?q=is%3Aopen) [![CodeQL](https://github.com/Rajaniraiyn/raj-browser/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Rajaniraiyn/raj-browser/actions/workflows/codeql-analysis.yml)
+
+ A UI and privacy focussed browser for the web from the web.
+</div>
 
 ## Screenshots
 ### New tab
@@ -43,21 +48,24 @@ and most of all other browsers
 - Awesome downloader which can pause and resume download even after any time using [electron-download-manager](https://github.com/danielnieto/electron-download-manager)
 - Custom scrollbar for all websites
 - Completely powered by opensource
+- Address bar
+- Process manager
+- Settings configuration
+- Context menu using [electron-context-menu](https://github.com/sindresorhus/electron-context-menu)
+- Code caching for faster subsequent loads
+- Splash screen 
 
 **🤞 Eventually:** (can be used manually)
 - Chrome extensions
 - Website screenshots
-- Dev tools
+- Dev tools (use context menu to use it)
 - Dark mode
 - Dropping links to open a page
-- Address bar (not completed)
 
 **🤔 Considering:** (planned to be implement)
 - Performance optimizations
 - UI for Adblocker
 - UI for download manager
-- Process manager
-- Settings configuration
 - Settings UI
 - More featured new tab
 - Sleeping tabs for reduce resources
@@ -65,13 +73,12 @@ and most of all other browsers
 - Custom themes
 - Improved UI and UX
 - More animations
-- Context menu
 - On the fly image compression to reduce data usage
 - Installation setup
-- Porting from `<webview>` to `BrowserView` for additional perfomace and security
+- Porting from `<webview>` to `BrowserView` for additional performance and security
 
 **❌ Limitations**
-- no `prompt` support as electron by default (but working on it. devs! take a look at `customDialogues.js` for more info)
+- no `prompt` support as electron by default doesn't support it (but working on it. devs! take a look at `customDialogues.js` for more info)
 
 ## Stack
 
@@ -108,3 +115,5 @@ Then check the out folder you will see both portable and installable files accor
 [**Latest Release**](https://github.com/Rajaniraiyn/raj-browser/releases/latest)
 
 **For Windows** download [Raj.Browser-win32-x64-portable.7z](https://github.com/Rajaniraiyn/raj-browser/releases/download/v0.00.01-alpha/Raj.Browser-win32-x64-portable.7z)
+
+**For Others** Please build it yourself as I am using Windows
