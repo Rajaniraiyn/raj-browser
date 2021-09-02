@@ -3,6 +3,9 @@
 var { app, BrowserWindow, nativeTheme, ipcMain, session } = require("electron");
 var settings = require("./settings/browser.config");
 
+// quits the app during install
+if (require('electron-squirrel-startup')) return app.quit();
+
 // starts capturing downloads
 if (settings.enableDownloadManager) {
   var downloader = require("electron-download-manager");

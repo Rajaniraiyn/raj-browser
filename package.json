@@ -1,15 +1,15 @@
 {
   "name": "raj-browser",
   "productName": "Raj Browser",
-  "version": "0.00.01",
-  "appVersion": "0.00.01",
+  "version": "0.0.2",
+  "appVersion": "0.0.2",
   "description": "A simple, modern,  UI focussed web browser.",
   "main": "./main/main.js",
   "author": "Rajaniraiyn",
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "_start": "electron-forge start",
+    "start:forge": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
@@ -30,32 +30,6 @@
     "v8-compile-cache": "^2.3.0"
   },
   "config": {
-    "forge": {
-      "packagerConfig": {
-        "icon": "./appIcons/icon"
-      },
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "RajBrowser"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
+    "forge": "./forge.config.js"
   }
 }
