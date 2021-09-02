@@ -1,6 +1,6 @@
 const { ElectronBlocker, fullLists } = require("@cliqz/adblocker-electron");
 const { readFileSync, writeFileSync } = require("fs");
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const fetch = require('cross-fetch')
 
 const adBlocker = ElectronBlocker.fromLists(
   fetch,
@@ -9,7 +9,7 @@ const adBlocker = ElectronBlocker.fromLists(
     enableCompression: true,
   },
   {
-    path: "./main/adblock/adblockCache.bin",
+    path: (__dirname + "/adblockCache.bin"),
     read: async (...args) => readFileSync(...args),
     write: async (...args) => writeFileSync(...args),
   }
