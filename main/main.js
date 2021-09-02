@@ -8,8 +8,7 @@ if (require('electron-squirrel-startup')) return app.quit();
 
 // starts capturing downloads
 if (settings.enableDownloadManager) {
-  var downloader = require("electron-download-manager");
-  downloader.register();
+  require("electron-download-manager").register();
 }
 
 // enables V8 Code Caching
@@ -56,8 +55,7 @@ function createWindow() {
 
   // starts blocking Ads
   if (settings.enableAdblock) {
-    var adBlocker = require("./adblock/adblock");
-    adBlocker.then((blocker) => {
+    require("./adblock/adblock").then((blocker) => {
       blocker.enableBlockingInSession(win.webContents.session);
     });
   }
@@ -149,8 +147,7 @@ function openProcessMgr() {
 
 // for custom context menu
 app.on("web-contents-created", (e, contents) => {
-  var contextMenu = require("electron-context-menu");
-  contextMenu({
+  require("electron-context-menu")({
     window: contents,
     labels: {
       cut: "Cut",
