@@ -2,9 +2,11 @@ import { urlParser } from "./url.js";
 
 /**
  * makes user able to edit the URL of the active page
+ * 
+ * @param {Number} id
  */
-function addressBar() {
-    var aTabURL = document.querySelector(".active-tab> div > input[type=url]");
+function addressBar(id) {
+    var aTabURL = document.querySelector(`#tab${id}>div>input[type=url]`);
 
     aTabURL.onkeydown = (e) => {
         var url = aTabURL.value;

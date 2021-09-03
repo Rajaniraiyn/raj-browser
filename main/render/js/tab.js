@@ -115,7 +115,7 @@ function newTab(url, favicon, title, hostname) {
   }
 
   // attach all events for a page
-  addressBar();
+  addressBar(id);
   addEvents(id);
 }
 
