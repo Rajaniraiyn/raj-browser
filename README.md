@@ -114,6 +114,6 @@ Then check the out folder you will see both portable and installable files accor
 
 [**Latest Release**](https://github.com/Rajaniraiyn/raj-browser/releases/latest)
 
-**For Windows** download [Raj.Browser-win32-x64-portable.7z](https://github.com/Rajaniraiyn/raj-browser/releases/download/v0.00.01-alpha/Raj.Browser-win32-x64-portable.7z)
+**For Windows** download [Raj.Browser-win32-x64-portable.7z](https://github.com/Rajaniraiyn/raj-browser/releases/latest/download/Raj.Browser-win32-x64-portable.7z)
 
 **For Others** Please build it yourself as I am using Windows
