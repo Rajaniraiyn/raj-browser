@@ -47,7 +47,7 @@ function createWindow() {
     },
   });
 
-  win.loadFile("./main/render/index.html");
+  win.loadFile("./main/renderer/index.html");
 
   win.on("ready-to-show", (_) => {
     win.show();
