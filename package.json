@@ -22,7 +22,7 @@
     "electron": "^18.0.1"
   },
   "dependencies": {
-    "@cliqz/adblocker-electron": "^1.23.6",
+    "@cliqz/adblocker-electron": "^1.23.7",
     "cross-fetch": "^3.1.5",
     "electron-context-menu": "^3.1.2",
     "electron-download-manager": "^2.1.2",
