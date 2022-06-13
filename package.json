@@ -24,7 +24,7 @@
   "dependencies": {
     "@cliqz/adblocker-electron": "^1.23.8",
     "cross-fetch": "^3.1.5",
-    "electron-context-menu": "^3.1.2",
+    "electron-context-menu": "^3.2.0",
     "electron-download-manager": "^2.1.2",
     "electron-squirrel-startup": "^1.0.0",
     "v8-compile-cache": "^2.3.0"
