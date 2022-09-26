@@ -19,7 +19,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.66",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.66",
     "@electron-forge/maker-zip": "^6.0.0-beta.66",
-    "electron": "^20.1.4"
+    "electron": "^20.2.0"
   },
   "dependencies": {
     "@cliqz/adblocker-electron": "^1.25.1",
