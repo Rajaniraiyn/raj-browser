@@ -28,8 +28,6 @@ jobs:
           cache: yarn
       - name: Install
         run: yarn --frozen-lockfile --network-timeout 100000 || yarn --frozen-lockfile --network-timeout 100000 || yarn --frozen-lockfile --network-timeout 100000
-      - name: lint
-        run: yarn lint
 
   build:
     needs: test
