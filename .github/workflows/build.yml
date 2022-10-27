@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-latest, ubuntu-latest, windows-latest]
+        os: [macOS-latest, windows-latest]
         arch: [x64]
         include:
           - os: macOS-latest
@@ -38,7 +38,7 @@ jobs:
         # Build for supported platforms
         # https://github.com/electron/electron-packager/blob/ebcbd439ff3e0f6f92fa880ff28a8670a9bcf2ab/src/targets.js#L9
         # 32-bit Linux unsupported as of 2019: https://www.electronjs.org/blog/linux-32bit-support
-        os: [macOS-latest, ubuntu-latest, windows-latest]
+        os: [macOS-latest, windows-latest]
         arch: [x64, arm64]
         include:
           - os: windows-latest
