@@ -1,33 +1,83 @@
-name: Build/release
+name: Build & Release
 
-on: push
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
 
 jobs:
-  release:
+  test:
+    name: Test (${{ matrix.os }} - ${{ matrix.arch }})
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macOS-latest, ubuntu-latest, windows-latest]
+        arch: [x64]
+        include:
+          - os: macOS-latest
+            arch: arm64
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: 16.x
+          cache: yarn
+      - name: Install
+        run: yarn --frozen-lockfile --network-timeout 100000 || yarn --frozen-lockfile --network-timeout 100000 || yarn --frozen-lockfile --network-timeout 100000
+      - name: lint
+        run: yarn lint
+
+  build:
+    needs: test
+    name: Build (${{ matrix.os }} - ${{ matrix.arch }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # Build for supported platforms
+        # https://github.com/electron/electron-packager/blob/ebcbd439ff3e0f6f92fa880ff28a8670a9bcf2ab/src/targets.js#L9
+        # 32-bit Linux unsupported as of 2019: https://www.electronjs.org/blog/linux-32bit-support
+        os: [macOS-latest, ubuntu-latest, windows-latest]
+        arch: [x64, arm64]
+        include:
+          - os: windows-latest
+            arch: ia32
+          - os: ubuntu-latest
+            arch: armv7l
+        # Publishing artifacts for multiple Windows architectures has
+        # a bug which can cause the wrong architecture to be downloaded
+        # for an update, so until that is fixed, only build Windows x64
+        exclude:
+          - os: windows-latest
+            arch: arm64
 
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v1
-
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.5.1
         with:
-          node-version: 16
-
-      - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
+          node-version: 16.x
+          cache: yarn
+      - name: Install
+        run: yarn --network-timeout 100000 || yarn --network-timeout 100000 || yarn --network-timeout 100000
+      - name: Build
+        if: startsWith(github.ref, 'refs/tags/')
+        run: yarn build:current
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          # GitHub token, automatically provided to the action
-          # (No need to define this secret in the repo settings)
-          github_token: ${{ secrets.github_token }}
-
-          # If the commit is tagged with a version (e.g. "v1.0.0"),
-          # release the app after building
-          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
-
-          args: '--config'
+          draft: true
+          files: |
+            dist/**/*.deb
+            dist/**/*.dmg
+            dist/**/*setup*.exe
+            dist/**/*.nupkg
+            dist/**/*.rpm
+            dist/**/*.zip
+            dist/**/RELEASES
