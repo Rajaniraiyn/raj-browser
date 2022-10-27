@@ -882,10 +882,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.11.5":
+"@types/node@npm:*":
   version: 18.11.5
   resolution: "@types/node@npm:18.11.5"
   checksum: ac54e9287dd4549ea3dc8aabc0cf7bfa04c52f02925d7fd68414789617ec770f034c8ae2e111e8bd00d446a46fcac42587b5a316a1303e2f6ea094854248c9ff
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:18.11.7":
+  version: 18.11.7
+  resolution: "@types/node@npm:18.11.7"
+  checksum: 69d630825cf6fbf580d08d76a4d4836ef8c34ed4fe0842221ade87d275f517099cbfabe8e22397208e564bd24926db97699ab9db5c091383269a432b336665e2
   languageName: node
   linkType: hard
 
@@ -2274,14 +2281,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-context-menu@npm:^3.5.0":
-  version: 3.5.0
-  resolution: "electron-context-menu@npm:3.5.0"
+"electron-context-menu@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "electron-context-menu@npm:3.6.0"
   dependencies:
     cli-truncate: ^2.1.0
     electron-dl: ^3.2.1
     electron-is-dev: ^2.0.0
-  checksum: 920ec17dd652e588e6465da07aa4ad2d929ec219548c8b227c1ebd10fc5a98440eb448ec428ba09e42c837b770e2a28e672a1a35b938bfd53b3aaaa2a937d03b
+  checksum: 99f8ebb09b319fa55a37b315701fc79c567c3edadaa55bdd354917d841e9941f078b12bde1e3ea797a8c54e64c79711906a23c98ebd04f62525a895efd4752fa
   languageName: node
   linkType: hard
 
@@ -4981,7 +4988,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.16":
+"postcss@npm:^8.4.18":
   version: 8.4.18
   resolution: "postcss@npm:8.4.18"
   dependencies:
@@ -5104,13 +5111,13 @@ __metadata:
     "@electron-toolkit/tsconfig": ^1.0.1
     "@electron-toolkit/utils": ^1.0.2
     "@sveltejs/vite-plugin-svelte": ^1.1.0
-    "@types/node": 18.11.5
+    "@types/node": 18.11.7
     "@typescript-eslint/eslint-plugin": ^5.41.0
     "@typescript-eslint/parser": ^5.41.0
     cz-conventional-changelog: 3.3.0
     electron: ^21.2.0
     electron-builder: ^23.6.0
-    electron-context-menu: ^3.5.0
+    electron-context-menu: ^3.6.0
     electron-dl: ^3.4.1
     electron-notarize: ^1.2.2
     electron-updater: ^5.3.0
@@ -5128,7 +5135,7 @@ __metadata:
     svelte-preprocess: ^4.10.7
     tslib: ^2.4.0
     typescript: ^4.8.4
-    vite: ^3.1.8
+    vite: ^3.2.0
     vite-plugin-webfont-dl: ^3.4.0
     yarn: ^1.22.19
   languageName: unknown
@@ -5331,9 +5338,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:~2.78.0":
-  version: 2.78.1
-  resolution: "rollup@npm:2.78.1"
+"rollup@npm:^2.79.1":
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -5341,7 +5348,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 9034814383ca5bdb4bea6d499270aeb31cdb0bb884f81b0c6a1d19c63cc973f040e6ee09b7af8a7169dd231c090f4b44ef8b99c4bfdf884aceeb3dcefb8cfa14
+  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
 
@@ -6195,19 +6202,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.1.8":
-  version: 3.1.8
-  resolution: "vite@npm:3.1.8"
+"vite@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "vite@npm:3.2.0"
   dependencies:
     esbuild: ^0.15.9
     fsevents: ~2.3.2
-    postcss: ^8.4.16
+    postcss: ^8.4.18
     resolve: ^1.22.1
-    rollup: ~2.78.0
+    rollup: ^2.79.1
   peerDependencies:
     less: "*"
     sass: "*"
     stylus: "*"
+    sugarss: "*"
     terser: ^5.4.0
   dependenciesMeta:
     fsevents:
@@ -6219,11 +6227,13 @@ __metadata:
       optional: true
     stylus:
       optional: true
+    sugarss:
+      optional: true
     terser:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 982696ad134577dd9915c4c3548ad36ddcf5dc6d341058548a670a13d860e4cdaaf2b320a59221f178018df089d148b9980e9a344316bef12b698a1c1abc7390
+  checksum: 2b3acfe74549c4be2d35786b40f253fa8ba53d8a7b29d1b7397f0536ab6a831e9cdbd27c628265fc2ddcf5c616254022d2c9cbd2a0e2b0443cf0c14455e101d6
   languageName: node
   linkType: hard
 
