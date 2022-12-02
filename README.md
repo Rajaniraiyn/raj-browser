@@ -120,7 +120,7 @@ To clone and build packages of this repository you'll need [Git](https://git-scm
  1. `git clone https://github.com/Rajaniraiyn/raj-browser`
  2. `cd raj-browser`
  3. `npm install`
- 4. `npm run make`
+ 4. `npm run build`
 
 Then check the out folder you will see both portable and installable files according to your OS.
 
