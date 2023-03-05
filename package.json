@@ -39,7 +39,7 @@
     "@typescript-eslint/parser": "^5.41.0",
     "cz-conventional-changelog": "3.3.0",
     "electron": "^22.0.2",
-    "electron-builder": "^23.6.0",
+    "electron-builder": "^24.0.0",
     "electron-notarize": "^1.2.2",
     "electron-vite": "^1.0.11",
     "eslint": "^8.26.0",
