@@ -38,7 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "cz-conventional-changelog": "3.3.0",
-    "electron": "^22.3.24",
+    "electron": "^22.3.25",
     "electron-builder": "^24.0.0",
     "electron-notarize": "^1.2.2",
     "electron-vite": "^1.0.11",
