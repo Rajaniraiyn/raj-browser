@@ -1584,12 +1584,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.25":
-  version: 0.25.0
-  resolution: "axios@npm:0.25.0"
+"axios@npm:^1":
+  version: 1.6.1
+  resolution: "axios@npm:1.6.1"
   dependencies:
-    follow-redirects: ^1.14.7
-  checksum: 2a8a3787c05f2a0c9c3878f49782357e2a9f38945b93018fb0c4fd788171c43dceefbb577988628e09fea53952744d1ecebde234b561f1e703aa43e0a598a3ad
+    follow-redirects: ^1.15.0
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: 573f03f59b7487d54551b16f5e155d1d130ad4864ed32d1da93d522b78a57123b34e3bde37f822a65ee297e79f1db840f9ad6514addff50d3cbf5caeed39e8dc
   languageName: node
   linkType: hard
 
@@ -1910,12 +1912,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clean-css@npm:^5.3":
-  version: 5.3.1
-  resolution: "clean-css@npm:5.3.1"
+"clean-css@npm:^5":
+  version: 5.3.2
+  resolution: "clean-css@npm:5.3.2"
   dependencies:
     source-map: ~0.6.0
-  checksum: 860696c60503cbfec480b5f92f62729246304b55950571af7292f2687b57f86b277f2b9fefe6f64643d409008018b78383972b55c2cc859792dcc8658988fb16
+  checksum: 8787b281acc9878f309b5f835d410085deedfd4e126472666773040a6a8a72f472a1d24185947d23b87b1c419bf2c5ed429395d5c5ff8279c98b05d8011e9758
   languageName: node
   linkType: hard
 
@@ -3457,6 +3459,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flat-cache@npm:^3":
+  version: 3.1.1
+  resolution: "flat-cache@npm:3.1.1"
+  dependencies:
+    flatted: ^3.2.9
+    keyv: ^4.5.3
+    rimraf: ^3.0.2
+  checksum: 4958cfe0f46acf84953d4e16676ef5f0d38eab3a92d532a1e8d5f88f11eea8b36d5d598070ff2aeae15f1fde18f8d7d089eefaf9db10b5a587cc1c9072325c7a
+  languageName: node
+  linkType: hard
+
 "flat-cache@npm:^3.0.4":
   version: 3.0.4
   resolution: "flat-cache@npm:3.0.4"
@@ -3474,13 +3487,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.7":
-  version: 1.15.2
-  resolution: "follow-redirects@npm:1.15.2"
+"flatted@npm:^3.2.9":
+  version: 3.2.9
+  resolution: "flatted@npm:3.2.9"
+  checksum: f14167fbe26a9d20f6fca8d998e8f1f41df72c8e81f9f2c9d61ed2bea058248f5e1cbd05e7f88c0e5087a6a0b822a1e5e2b446e879f3cfbe0b07ba2d7f80b026
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.0":
+  version: 1.15.3
+  resolution: "follow-redirects@npm:1.15.3"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: faa66059b66358ba65c234c2f2a37fcec029dc22775f35d9ad6abac56003268baf41e55f9ee645957b32c7d9f62baf1f0b906e68267276f54ec4b4c597c2b190
+  checksum: 584da22ec5420c837bd096559ebfb8fe69d82512d5585004e36a3b4a6ef6d5905780e0c74508c7b72f907d1fa2b7bd339e613859e9c304d0dc96af2027fd0231
   languageName: node
   linkType: hard
 
@@ -4336,6 +4356,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"keyv@npm:^4.5.3":
+  version: 4.5.4
+  resolution: "keyv@npm:4.5.4"
+  dependencies:
+    json-buffer: 3.0.1
+  checksum: 74a24395b1c34bd44ad5cb2b49140d087553e170625240b86755a6604cd65aa16efdbdeae5cdb17ba1284a0fbb25ad06263755dbc71b8d8b06f74232ce3cdd72
+  languageName: node
+  linkType: hard
+
 "kleur@npm:^4.1.5":
   version: 4.1.5
   resolution: "kleur@npm:4.1.5"
@@ -5135,7 +5164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picocolors@npm:^1.0, picocolors@npm:^1.0.0":
+"picocolors@npm:^1, picocolors@npm:^1.0.0":
   version: 1.0.0
   resolution: "picocolors@npm:1.0.0"
   checksum: a2e8092dd86c8396bdba9f2b5481032848525b3dc295ce9b57896f931e63fc16f79805144321f72976383fc249584672a75cc18d6777c6b757603f372f745981
@@ -5226,6 +5255,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
+  languageName: node
+  linkType: hard
+
 "pump@npm:^3.0.0":
   version: 3.0.0
   resolution: "pump@npm:3.0.0"
@@ -5300,7 +5336,7 @@ __metadata:
     tslib: ^2.4.0
     typescript: ^4.8.4
     vite: ^3.2.7
-    vite-plugin-webfont-dl: ^3.4.0
+    vite-plugin-webfont-dl: ^3.8.1
     yarn: ^1.22.19
   languageName: unknown
   linkType: soft
@@ -6372,16 +6408,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-webfont-dl@npm:^3.4.0":
-  version: 3.4.0
-  resolution: "vite-plugin-webfont-dl@npm:3.4.0"
+"vite-plugin-webfont-dl@npm:^3.8.1":
+  version: 3.8.1
+  resolution: "vite-plugin-webfont-dl@npm:3.8.1"
   dependencies:
-    axios: ^0.25
-    clean-css: ^5.3
-    picocolors: ^1.0
+    axios: ^1
+    clean-css: ^5
+    flat-cache: ^3
+    picocolors: ^1
   peerDependencies:
-    vite: ^2 || ^3
-  checksum: b8077d7794c7fc3355f7753d44c1de63f1fc43bc5e398a080d6fdc3b6161d393cb0849be95b70f7c2486f727c866c396b5b185af2deec7c4fab389b285493e63
+    vite: ^2 || ^3 || ^4
+  checksum: 7dfbcb3d38d59a4cde6cf2b2320431642bedc2edc83a6a5c72ad4f2f1039e9ec080fa9529b4cb75872367869137dbcb53070ed95ffab09111cadfa0b60930092
   languageName: node
   linkType: hard
 
