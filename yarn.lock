@@ -5484,7 +5484,7 @@ __metadata:
     svelte-preprocess: ^4.10.7
     tslib: ^2.4.0
     typescript: ^4.8.4
-    vite: ^4.5.13
+    vite: ^4.5.14
     vite-plugin-webfont-dl: ^3.8.1
     yarn: ^1.22.19
   languageName: unknown
@@ -6555,9 +6555,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^4.5.13":
-  version: 4.5.13
-  resolution: "vite@npm:4.5.13"
+"vite@npm:^4.5.14":
+  version: 4.5.14
+  resolution: "vite@npm:4.5.14"
   dependencies:
     esbuild: ^0.18.10
     fsevents: ~2.3.2
@@ -6591,7 +6591,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 9ce4b5dd8767acc598a402565a21525a9d23d3dad48463bcc4aedf91b3c69ad907213113b356eb9663f7d71cd8950ecc5228ba0ac9974223eaccca2314368428
+  checksum: ed61e2bc284968c5f514eae1f0b040ad6aa1b6591575c102d4967da5e34f8e52cd1a7048800bc3154ece0c11b4f11e1be1d0ef382c92993fd2dc6f7feca110ba
   languageName: node
   linkType: hard
 
