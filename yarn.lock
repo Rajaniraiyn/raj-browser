@@ -3015,16 +3015,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^35.7.5":
-  version: 35.7.5
-  resolution: "electron@npm:35.7.5"
+"electron@npm:^39.8.5":
+  version: 39.8.6
+  resolution: "electron@npm:39.8.6"
   dependencies:
     "@electron/get": ^2.0.0
     "@types/node": ^22.7.7
     extract-zip: ^2.0.1
   bin:
     electron: cli.js
-  checksum: 0540a82d9462b95e4e9173937e64aaa72b4c2f089ad4f10ea522a9298bfeb4340930582cfd79041dc1214e0f981c6fb9a02ac49433fbc89135faa5df8607f705
+  checksum: 2a1edff63a5d95de7ab8203e9823175bb22f70e97ed65a2543a9d624a8e4d3fce57eea693b5be00c04794efcdd58996c5b00f0430d40cd81b6342f78b37cf1b2
   languageName: node
   linkType: hard
 
@@ -5816,7 +5816,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.41.0
     "@typescript-eslint/parser": ^5.41.0
     cz-conventional-changelog: 3.3.0
-    electron: ^35.7.5
+    electron: ^39.8.5
     electron-builder: ^24.0.0
     electron-context-menu: ^3.6.0
     electron-dl: ^3.4.1
